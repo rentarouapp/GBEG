@@ -7,6 +7,10 @@ public final class GBEG {
     private let errorSubject = PassthroughSubject<APIServiceError, Never>()
     private var cancellables: [AnyCancellable] = []
     
+    public init() {
+        
+    }
+    
     /**
      * 検索語句と上限件数を受け取ってGoogleBooksAPIのリクエストを実行し、
      * AnyPublisher（実態はURLSessionのdataTaskPublisher）を返す
