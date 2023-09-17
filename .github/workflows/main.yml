@@ -7,27 +7,19 @@ on:
     branches: [ main ]
 
 env:
-    DEVELOPER_DIR: /Applications/Xcode.app
+  DEVELOPER_DIR: /Applications/Xcode.app
 
 jobs:
   build:
     runs-on: macOS-latest
     steps:
-    - uses: swift-actions/setup-swift@v1
-      with:
-        swift-version: "5.8.0"
-    - name: Get Swift Version
-      run: swift --version
+    - uses: actions/checkout@v3
     - name: Build
       run: swift build -v
 
   test:
     runs-on: macOS-latest
     steps:
-    - uses: swift-actions/setup-swift@v1
-      with:
-        swift-version: "5.8.0"
-    - name: Get Swift Version
-      run: swift --version
+    - uses: actions/checkout@v3
     - name: Test
       run: swift test -v
