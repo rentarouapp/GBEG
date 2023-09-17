@@ -25,6 +25,5 @@ let package = Package(
         .testTarget(
             name: "GBEGTests",
             dependencies: ["GBEG"]),
-    ],
-    swiftLanguageVersions: [.v4_2, .v5]
+    ]
 )
