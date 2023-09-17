@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       with:
-        swift-version: "5.8.0"
+        swift-version: 5.8.0
     - name: Get Swift Version
       run: swift --version
     - name: Build
