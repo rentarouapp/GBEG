@@ -25,4 +25,4 @@ jobs:
       run: swift --version # Swift 5.3.3
     - name: Test
       #run: swift test
-      run: xcodebuild test -project GBEG.xcodeproj -scheme Debug -sdk iphonesimulator -destination platform='iOS Simulator,name=iPhone 12,OS=16.1'
+      run: xcodebuild -scheme GBEG test -destination "name=iPhone XS" | xcpretty
