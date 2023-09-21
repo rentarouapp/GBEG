@@ -1,17 +1,27 @@
-name: CI
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-on: [push] # git push をトリガーとする
+env:
+  DEVELOPER_DIR: /Applications/Xcode_12.4.app
 
 jobs:
   build:
-
-    runs-on: macos-latest
-
+    runs-on: macOS-latest
     steps:
-    - uses: actions/checkout@v1 # ソースコードをcheckout
-    - name: Select Xcode version # Xcode 12.4 を使う
-      run: sudo xcode-select -s '/Applications/Xcode_13.2.1.app/Contents/Developer'
-    - name: Show Xcode version
-      run: xcodebuild -version
-    - name: Build # シミュレーター向けにビルド
-      run: xcodebuild -sdk iphonesimulator -configuration Debug build 
+    - uses: actions/checkout@v2
+    - name: Build
+      run: swift build -v
+
+  test:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        swift-version: "5.3.3"
+    - name: Get swift version
+      run: swift --version # Swift 5.3.3
+    - name: Test
+      run: swift test -v
