@@ -23,5 +23,7 @@ jobs:
         swift-version: "5.8.0"
     - name: Get swift version
       run: swift --version # Swift 5.3.3
+    - name: Build Package
+      run: swift build -v
     - name: Test
       run: swift test -v
