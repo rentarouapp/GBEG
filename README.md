@@ -1,3 +1,3 @@
 # GBEG
 
-A description of this package.
+Use GoogleBooksAPI Easy.
